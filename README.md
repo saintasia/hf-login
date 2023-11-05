@@ -14,8 +14,8 @@
 
 ## Build the app
 
-`npm build`
+`npm run build`
 
 ## Run the tests
 
-`npm test`
+`npm run test`
