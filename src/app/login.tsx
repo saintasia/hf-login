@@ -74,6 +74,11 @@ const Login = () => {
                 <hr className="w-full" />
               </div>
               <Button variant="secondary" type="button" icon={<img src={GoogleIcon} alt="Google" />}>Log in with Google</Button>
+              
+              <div className="text-center">
+                <span className="text-neutral-700 text-base">Don’t have an account? </span>
+                <a href="/" className="text-indigo-800 text-base font-medium underline">Sign up</a>
+              </div>
             </form>
           </div>
           <div />
