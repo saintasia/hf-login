@@ -25,6 +25,8 @@ const Login = () => {
     resolver: yupResolver(schema)
   });
 
+  const imageWidth = window?.innerWidth > 1500 ? 900 : 520
+
   const mousePosition = useMousePosition();
 
   const translateStyles = {
@@ -51,7 +53,8 @@ const Login = () => {
         grid-cols-1
         gap-x-5
         gap-y-16
-        lg:grid-cols-[1fr_max(520px)]
+        lg:grid-cols-[1fr_minmax(auto,520px)]
+        2xl:grid-cols-[1fr_minmax(auto,800px)]
       `}
     >
       <div className="flex justify-center content-center min-h-[90vh]">
@@ -100,12 +103,14 @@ const Login = () => {
             w-full
             aspect-[6/8]
             overflow-hidden
+            rounded-tl-[100px]
+            rounded-br-[100px]
           `}
         >
           <LazyLoadImage
             src={MainImage}
             effect="blur"
-            width={520}
+            width={imageWidth}
             alt="Woman working"
             className="aspect-[6/8] h-full w-full object-cover"
           />
@@ -114,7 +119,7 @@ const Login = () => {
           src={LogoWhite}
           style={translateStyles}
           alt="Humanforce Logo"
-          className={`absolute top-[82vh] left-6 h-8`}
+          className={`absolute bottom-10 left-6 h-8`}
         />
       </div>
     </div>
