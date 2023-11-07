@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import './lazy-image-overrides.css'
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { yupResolver } from '@hookform/resolvers/yup';
+import useMousePosition from "../hooks/useMousePosition";
 import schema from "../utils";
 
 import MainImage from "../assets/main.jpg";
@@ -22,6 +24,12 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema)
   });
+
+  const mousePosition = useMousePosition();
+
+  const translateStyles = {
+    translate: `${mousePosition.x / 100}px ${mousePosition.y / 100}px`
+  }
 
   const onSubmit = (data: FormData) => {
     console.log(data)
@@ -50,7 +58,7 @@ const Login = () => {
         <div className="grid grid-cols-[2rem,1fr,2rem] sm:grid-cols-[2.5rem,1fr,2.5rem] sm:grid-rows-[2.5rem,1fr,2.5rem] gap-2 sm:gap-4 w-full sm:w-[80%] max-w-[520px] m-auto">
           <div />
           <div />
-          <img src={IconYellow} className="w-full" alt="yellow shapes" />
+          <img src={IconYellow} className="w-full" style={translateStyles} alt="yellow shapes" />
           <div />
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
@@ -64,8 +72,8 @@ const Login = () => {
             </div>
             <form className="contents" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-col gap-2">
-                <Input label="Email" name="email" id="email" register={register} required={true} error={errors.email?.message} />
-                <Input label="Password" name="password" type="password" id="password" register={register} required={true} error={errors.password?.message} />
+                <Input label="Email" name="email" id="email" autoComplete="email" register={register} required={true} error={errors.email?.message} />
+                <Input label="Password" name="password" type="password" id="password" autoComplete="off" aria-autocomplete="none" register={register} required={true} error={errors.password?.message} />
               </div>
               <Button type="submit">Log in</Button>
               <div className="w-full justify-start items-center gap-3 inline-flex">
@@ -82,7 +90,7 @@ const Login = () => {
             </form>
           </div>
           <div />
-          <img src={IconPurple} className="w-full" alt="purple shapes"/>
+          <img src={IconPurple} style={translateStyles} className="w-full" alt="purple shapes"/>
         </div>
       </div>
       <div className="hidden lg:block relative">
@@ -92,8 +100,6 @@ const Login = () => {
             w-full
             aspect-[6/8]
             overflow-hidden
-            rounded-tl-[100px]
-            rounded-br-[100px]
           `}
         >
           <LazyLoadImage
@@ -106,6 +112,7 @@ const Login = () => {
         </div>
         <img
           src={LogoWhite}
+          style={translateStyles}
           alt="Humanforce Logo"
           className={`absolute top-[82vh] left-6 h-8`}
         />

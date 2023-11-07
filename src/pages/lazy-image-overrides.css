@@ -1,0 +1,5 @@
+.lazy-load-image-background {
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  overflow: hidden;
+}
