@@ -53,7 +53,7 @@ const Login = () => {
         gap-x-5
         gap-y-16
         grid-cols-1
-        md:grid-cols-[1fr_minmax(auto,520px)]
+        lg:grid-cols-[1fr_minmax(auto,520px)]
         2xl:grid-cols-[1fr_minmax(auto,660px)]
       `}
     >
