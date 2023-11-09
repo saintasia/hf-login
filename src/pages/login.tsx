@@ -25,7 +25,7 @@ const Login = () => {
     resolver: yupResolver(schema)
   });
 
-  const imageWidth = window?.innerWidth > 1700 ? 900 : 520
+  const imageWidth = window?.innerWidth > 1600 && 900 || window?.innerWidth > 1400 && 660 || 520
 
   const mousePosition = useMousePosition();
 
@@ -42,7 +42,7 @@ const Login = () => {
       className={`
         bg-white
         bg-gradient-to-b
-        from-whit
+        from-white
         to-slate-100
         text-slate-800
         p-2
@@ -50,11 +50,11 @@ const Login = () => {
         md:p-10
         min-h-screen
         grid
-        grid-cols-1
         gap-x-5
         gap-y-16
-        lg:grid-cols-[1fr_minmax(auto,520px)]
-        2xl:grid-cols-[1fr_minmax(auto,800px)]
+        grid-cols-1
+        md:grid-cols-[1fr_minmax(auto,520px)]
+        2xl:grid-cols-[1fr_minmax(auto,660px)]
       `}
     >
       <div className="flex justify-center content-center min-h-[90vh]">
@@ -99,7 +99,7 @@ const Login = () => {
       <div className="hidden lg:block relative">
         <div
           className={`
-            h-full
+            h-[90vh]
             w-full
             aspect-[6/8]
             overflow-hidden
