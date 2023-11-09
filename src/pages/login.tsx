@@ -25,7 +25,7 @@ const Login = () => {
     resolver: yupResolver(schema)
   });
 
-  const imageWidth = window?.innerWidth > 1500 ? 900 : 520
+  const imageWidth = window?.innerWidth > 1700 ? 900 : 520
 
   const mousePosition = useMousePosition();
 
@@ -66,7 +66,7 @@ const Login = () => {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <div className="whitespace-normal gap-2">
-                <h1 className="inline-block float-left mr-2 text-3xl font-medium relative whitespace-nowrap before:content-squiggle before:absolute before:-top-9">Log Into</h1>
+                <h1 className="inline-block float-left mr-3 text-3xl font-medium relative whitespace-nowrap before:content-squiggle before:absolute before:-top-9">Log Into</h1>
                 <img className="h-9 float-left" src={LogoPuple} alt="Humanfore" />
               </div>
               <span>
